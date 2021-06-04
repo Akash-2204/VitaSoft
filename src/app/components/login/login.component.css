@@ -1,0 +1,43 @@
+.glass {
+    margin-top: 30px;
+    background-color : rgb(241, 214, 214);
+    border-radius : 30px;
+    margin-bottom: 100px;
+    box-shadow: 10px 15px black ;
+  }
+  
+input.ng-invalid.ng-touched{
+    border: 3px solid red;
+}
+
+.naming{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 10px solid rebeccapurple;
+  align-self: start;
+  border-radius: 30px;
+}
+h3{
+  text-align: center;
+  font-family: fantasy ;
+  text-transform: unset;
+  margin-bottom: 20px
+}
+.jumbotron{
+  background-color: rgb(48, 47, 59) ;
+}
+.needspace{
+  margin-top: 30px;
+  margin-bottom: 30px
+}
+.space{
+  margin-top: 5px
+}
+mat-form-field {
+  width: 100%;
+}
+
+button {
+  float: right;
+  width: 200px;
+}
