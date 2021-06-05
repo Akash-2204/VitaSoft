@@ -1,6 +1,6 @@
 import { formatCurrency } from '@angular/common';
 import { Component, NgModule,  OnInit } from '@angular/core';
-import { NgForm, FormControl, FormGroup, Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Router } from "@angular/router";
 
 import { AuthService } from "src/app/services/auth.service";

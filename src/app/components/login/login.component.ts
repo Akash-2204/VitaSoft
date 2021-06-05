@@ -1,6 +1,5 @@
 import { Component, NgModule, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { AuthService } from "src/app/services/auth.service";
 
 
@@ -15,11 +14,11 @@ export class LoginComponent implements OnInit {
   
 
 
-  constructor(private authService: AuthService, private FormGroup: FormGroup) {
+  constructor(private authService: AuthService) {
     
   }
 
-  loginForm: FormGroup;
+  loginForm!: FormGroup;
 
   ngOnInit(): void {
     this.loginForm = this.createFormGroup();
