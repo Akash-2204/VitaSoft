@@ -6,13 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent,  } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NoopAnimationsModule } from "@angular/platform-browser/animations";
-
+import {MatSelectModule} from '@angular/material/select';
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { MatListModule } from "@angular/material/list";
 import { MatToolbarModule } from "@angular/material/toolbar";
+
 
 import { NavigationComponent } from "./components/navigation/navigation.component";
 import { SignupComponent } from "./components/signup/signup.component";
@@ -45,6 +46,7 @@ import { MatRippleModule } from '@angular/material/core';
     ReactiveFormsModule,
     HttpClientModule,
     MatRippleModule,
+    MatSelectModule,
     
   ],
   entryComponents: [

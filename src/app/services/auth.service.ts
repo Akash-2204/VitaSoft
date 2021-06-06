@@ -29,6 +29,7 @@ export class AuthService {
   ) {}
 
   signup(user: Omit<User, "id">): Observable<User> {
+    console.log("hello im here");
     return this.http
       .post<User>(`${this.url}/signup`, user, this.httpOptions)
       .pipe(

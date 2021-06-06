@@ -1,230 +1,209 @@
 <div class="jumbotron">
   <div class="container glass ">
-    <div class="col-md-12 naming" [hidden]="!addnew">
+    <div class="col-md-12 naming" [hidden]="istoggle" >
       <h3> Enter Technician Details</h3>
     </div>
     <div class="row" ng-controller="formSubmitter">
-      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-        <form (ngSubmit)="onSubmit(f)" #f="ngForm" validate>
-          <div id="user-data" [hidden]="!addnew">
-            <div class="form-group">
-              <label for="FirstName">FirstName</label>
-              <input type="text" id="FirstName" class="form-control" ngModel name="FirstName" placeholder="FirstName"
-                required>
-            </div>
-            <div class="form-group">
-              <label for="LastName">LastName</label>
-              <input type="text" id="LastName" class="form-control" ngModel name="LastName" placeholder="LastName"
-                required>
-            </div>
-            <div class="form-group">
-              <label for="MiddleName">MiddleName</label>
-              <input type="text" id="MiddleName" class="form-control" ngModel name="MiddleName" placeholder="MiddleName"
-                required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" class="form-control" ngModel name="email" required email #email="ngModel"
-                placeholder="abc@abc.com">
-              <span class="help-block" *ngIf=" !email.valid && email.touched ">Please enter a valid email</span>
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2" [hidden]="istoggle">
+        <form [formGroup]="signupForm" (ngSubmit)="signup()" novalidate>
+          <mat-form-field>
+            <mat-label>First name</mat-label>
+            <input matInput placeholder="Ex. Ak" formControlName="firstName" class="form-control" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Last name</mat-label>
+            <input matInput placeholder="Ex. As" formControlName="lastName" class="form-control" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Middle name</mat-label>
+            <input matInput placeholder="Ex. Jon" formControlName="middleName" class="form-control" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Ex. Jon" formControlName="email" class="form-control" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Ex. Jon" formControlName="password" class="form-control" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>PhoneNumber</mat-label>
+            <input matInput placeholder="Ex. Jon" formControlName="phoneNumber" class="form-control" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Ex. Jon" formControlName="address" class="form-control" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Country</mat-label>
+            <mat-select formControlName="country" class="form-control">
+              <mat-option value="">Choose Country Name</mat-option>
+              <mat-option value="Afganistan">Afghanistan</mat-option>
+              <mat-option value="Algeria">Algeria</mat-option>
+              <mat-option value="Argentina">Argentina</mat-option>
+              <mat-option value="Australia">Australia</mat-option>
+              <mat-option value="Austria">Austria</mat-option>
+              <mat-option value="Bangladesh">Bangladesh</mat-option>
+              <mat-option value="Belgium">Belgium</mat-option>
+              <mat-option value="Bermuda">Bermuda</mat-option>
+              <mat-option value="Brazil">Brazil</mat-option>
+              <mat-option value="British Indian Ocean Ter">British Indian Ocean Ter</mat-option>
+              <mat-option value="Canada">Canada</mat-option>
+              <mat-option value="Canary Islands">Canary Islands</mat-option>
+              <mat-option value="China">China</mat-option>
+              <mat-option value="Colombia">Colombia</mat-option>
+              <mat-option value="Congo">Congo</mat-option>
+              <mat-option value="Costa Rica">Costa Rica</mat-option>
+              <mat-option value="Dominica">Dominica</mat-option>
+              <mat-option value="Egypt">Egypt</mat-option>
+              <mat-option value="Falkland Islands">Falkland Islands</mat-option>
+              <mat-option value="Finland">Finland</mat-option>
+              <mat-option value="France">France</mat-option>
+              <mat-option value="Georgia">Georgia</mat-option>
+              <mat-option value="Germany">Germany</mat-option>
+              <mat-option value="Greece">Greece</mat-option>
+              <mat-option value="Greenland">Greenland</mat-option>
+              <mat-option value="Hawaii">Hawaii</mat-option>
+              <mat-option value="Hong Kong">Hong Kong</mat-option>
+              <mat-option value="Iceland">Iceland</mat-option>
+              <mat-option value="Indonesia">Indonesia</mat-option>
+              <mat-option value="India">India</mat-option>
+              <mat-option value="Iran">Iran</mat-option>
+              <mat-option value="Iraq">Iraq</mat-option>
+              <mat-option value="Ireland">Ireland</mat-option>
+              <mat-option value="Israel">Israel</mat-option>
+              <mat-option value="Italy">Italy</mat-option>
+              <mat-option value="Japan">Japan</mat-option>
+              <mat-option value="Korea North">Korea North</mat-option>
+              <mat-option value="Korea South">Korea South</mat-option>
+              <mat-option value="Madagascar">Madagascar</mat-option>
+              <mat-option value="Malaysia">Malaysia</mat-option>
+              <mat-option value="Maldives">Maldives</mat-option>
+              <mat-option value="Mexico">Mexico</mat-option>
+              <mat-option value="Midway Islands">Midway Islands</mat-option>>
+              <mat-option value="Nepal">Nepal</mat-option>
+              <mat-option value="Netherlands">Netherlands (Holland, Europe)</mat-option>
+              <mat-option value="New Zealand">New Zealand</mat-option>
+              <mat-option value="Norway">Norway</mat-option>
+              <mat-option value="Oman">Oman</mat-option>
+              <mat-option value="Pakistan">Pakistan</mat-option>
+              <mat-option value="Palestine">Palestine</mat-option>
+              <mat-option value="Peru">Peru</mat-option>
+              <mat-option value="Phillipines">Philippines</mat-option>
+              <mat-option value="Poland">Poland</mat-option>
+              <mat-option value="Portugal">Portugal</mat-option>
+              <mat-option value="Qatar">Qatar</mat-option>
+              <mat-option value="Romania">Romania</mat-option>
+              <mat-option value="Russia">Russia</mat-option>
+              <mat-option value="Saudi Arabia">Saudi Arabia</mat-option>
+              <mat-option value="Singapore">Singapore</mat-option>
+              <mat-option value="South Africa">South Africa</mat-option>
+              <mat-option value="Spain">Spain</mat-option>
+              <mat-option value="Sri Lanka">Sri Lanka</mat-option>
+              <mat-option value="Sweden">Sweden</mat-option>
+              <mat-option value="Switzerland">Switzerland</mat-option>
+              <mat-option value="Thailand">Thailand</mat-option>
+              <mat-option value="Turkey">Turkey</mat-option>
+              <mat-option value="United Kingdom">United Kingdom</mat-option>
+              <mat-option value="Ukraine">Ukraine</mat-option>
+              <mat-option value="United Arab Erimates">United Arab Emirates</mat-option>
+              <mat-option value="United States of America">United States of America</mat-option>
+              <mat-option value="Vietnam">Vietnam</mat-option>
+              <mat-option value="Yemen">Yemen</mat-option>
+            </mat-select>
 
-            </div>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>State</mat-label>
+            <mat-select formControlName="state" class="form-control">
+              <mat-option value="">Choose State Name</mat-option>
+              <mat-option value="Andhra Pradesh">Andhra Pradesh</mat-option>
+              <mat-option value="Assam">Assam</mat-option>
+              <mat-option value="Bihar">Bihar</mat-option>
+              <mat-option value="Goa">Goa</mat-option>
+              <mat-option value="Gujarat">Gujarat</mat-option>
+              <mat-option value="Haryana">Haryana</mat-option>
+              <mat-option value="Himachal Pradesh">Himachal Pradesh</mat-option>
+              <mat-option value="Jammu and Kashmir">Jammu and Kashmir</mat-option>
+              <mat-option value="Jharkhand">Jharkhand</mat-option>
+              <mat-option value="Karnataka">Karnataka</mat-option>
+              <mat-option value="Kerala">KeralaKerala</mat-option>
+              <mat-option value="Madhya Pradesh">Madhya Pradesh</mat-option>
+              <mat-option value="Maharashtra">Maharashtra</mat-option>
+              <mat-option value="Manipur">Manipur</mat-option>
+              <mat-option value="">None</mat-option>
+              
+            </mat-select>
+          </mat-form-field>
 
-            <div class="form-group">
-              <label for="phone">Enter a phone number:</label>
-              <input type="tel" id="phone" class="form-control" ngModel name="phone" placeholder="1234567890" required>
-            </div>
-            <div class="form-group">
-              <label for="address">Address</label>
-              <input type="address" id="address" class="form-control" ngModel name="address" required
-                placeholder="Address">
-            </div>
+          <mat-form-field>
+            <mat-label>City</mat-label>
+            <input matInput placeholder="Ex. Jon" formControlName="city" class="form-control" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Pincode</mat-label>
+            <input matInput placeholder="Ex. Jon" formControlName="pincode" class="form-control" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Weight</mat-label>
+            <input matInput placeholder="Ex. Jon" formControlName="weight" class="form-control" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Height</mat-label>
+            <input matInput placeholder="Ex. Jon" formControlName="height" class="form-control" />
+          </mat-form-field>
 
-
-          </div>
-          <div class="form-group" [hidden]="!addnew">
-            <label for="country">Country</label>
-            <select id="country" class="form-control" ngModel name="country" onsubmit="statechange(f)" required>
-              <option value="">Choose Country Name</option>
-              <option value="Afganistan">Afghanistan</option>
-              <option value="Algeria">Algeria</option>
-              <option value="Argentina">Argentina</option>
-              <option value="Australia">Australia</option>
-              <option value="Austria">Austria</option>
-              <option value="Bangladesh">Bangladesh</option>
-              <option value="Belgium">Belgium</option>
-              <option value="Bermuda">Bermuda</option>
-              <option value="Brazil">Brazil</option>
-              <option value="British Indian Ocean Ter">British Indian Ocean Ter</option>
-              <option value="Canada">Canada</option>
-              <option value="Canary Islands">Canary Islands</option>
-              <option value="China">China</option>
-              <option value="Colombia">Colombia</option>
-              <option value="Congo">Congo</option>
-              <option value="Costa Rica">Costa Rica</option>
-              <option value="Dominica">Dominica</option>
-              <option value="Egypt">Egypt</option>
-              <option value="Falkland Islands">Falkland Islands</option>
-              <option value="Finland">Finland</option>
-              <option value="France">France</option>
-              <option value="Georgia">Georgia</option>
-              <option value="Germany">Germany</option>
-              <option value="Greece">Greece</option>
-              <option value="Greenland">Greenland</option>
-              <option value="Hawaii">Hawaii</option>
-              <option value="Hong Kong">Hong Kong</option>
-              <option value="Iceland">Iceland</option>
-              <option value="Indonesia">Indonesia</option>
-              <option value="India">India</option>
-              <option value="Iran">Iran</option>
-              <option value="Iraq">Iraq</option>
-              <option value="Ireland">Ireland</option>
-              <option value="Israel">Israel</option>
-              <option value="Italy">Italy</option>
-              <option value="Japan">Japan</option>
-              <option value="Korea North">Korea North</option>
-              <option value="Korea South">Korea South</option>
-              <option value="Madagascar">Madagascar</option>
-              <option value="Malaysia">Malaysia</option>
-              <option value="Maldives">Maldives</option>
-              <option value="Mexico">Mexico</option>
-              <option value="Midway Islands">Midway Islands</option>>
-              <option value="Nepal">Nepal</option>
-              <option value="Netherlands">Netherlands (Holland, Europe)</option>
-              <option value="New Zealand">New Zealand</option>
-              <option value="Norway">Norway</option>
-              <option value="Oman">Oman</option>
-              <option value="Pakistan">Pakistan</option>
-              <option value="Palestine">Palestine</option>
-              <option value="Peru">Peru</option>
-              <option value="Phillipines">Philippines</option>
-              <option value="Poland">Poland</option>
-              <option value="Portugal">Portugal</option>
-              <option value="Qatar">Qatar</option>
-              <option value="Romania">Romania</option>
-              <option value="Russia">Russia</option>
-              <option value="Saudi Arabia">Saudi Arabia</option>
-              <option value="Singapore">Singapore</option>
-              <option value="South Africa">South Africa</option>
-              <option value="Spain">Spain</option>
-              <option value="Sri Lanka">Sri Lanka</option>
-              <option value="Sweden">Sweden</option>
-              <option value="Switzerland">Switzerland</option>
-              <option value="Thailand">Thailand</option>
-              <option value="Turkey">Turkey</option>
-              <option value="United Kingdom">United Kingdom</option>
-              <option value="Ukraine">Ukraine</option>
-              <option value="United Arab Erimates">United Arab Emirates</option>
-              <option value="United States of America">United States of America</option>
-              <option value="Vietnam">Vietnam</option>
-              <option value="Yemen">Yemen</option>
-            </select>
-          </div>
-
-          <div class="form-group" [hidden]="!addnew">
-            <label for="state">State</label>
-            <div [hidden]="hidestate">
-              <input name="state" id="state" class="form-control" ngModel name="state">
-            </div>
-            <div [hidden]="!hidestate">
-              <select name="state" id="state" class="form-control" ngModel name="state">
-                <option value="">Choose State Name</option>
-                <option value="Andhra Pradesh">Andhra Pradesh</option>
-                <option value="Assam">Assam</option>
-                <option value="Bihar">Bihar</option>
-                <option value="Goa">Goa</option>
-                <option value="Gujarat">Gujarat</option>
-                <option value="Haryana">Haryana</option>
-                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
-                <option value="Jharkhand">Jharkhand</option>
-                <option value="Karnataka">Karnataka</option>
-                <option value="Kerala">KeralaKerala</option>
-                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                <option value="Maharashtra">Maharashtra/option>
-                <option value="Manipur">Manipur</option>
-                <option value="">None</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group" [hidden]="!addnew">
-            <label for="city">City</label>
-            <input type="text" id="city" class="form-control" ngModel name="city" required placeholder="City">
-          </div>
-
-          <div class="form-group" [hidden]="!addnew">
-            <label for="pincode">Pincode</label>
-            <input type="number" id="pincode" class="form-control" ngModel name="pincode" Pattern="[0-9]{6}" required
-              minlength="6" placeholder="123456">
-
-          </div>
+          <button color="accent"  mat-raised-button type="submit" class="form-control">
+            <span>Sign up</span>
+          </button>
 
 
-          <div class="form-group" [hidden]="!addnew">
-            <label>Weight</label>
-            <input id="inputkilogram" class="form-control" ngModel name="weight" type="number" placeholder="in Kgs"
-              required>
-          </div>
 
-          <div class="form-group" [hidden]="!addnew">
-            <label>Height</label>
-            <input id="inputfeet" class="form-control" ngModel name="height" type="number" placeholder="in feet"
-              required>
-          </div>
-          <div [hidden]="!addnew">
-            <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
-          </div>
-
-          <p>
-          </p>
-          <div class="container" [hidden]="!istoggle">
-            <div class="col-md-12 naming">
-              <h3> Technician Details</h3>
-            </div>
-            <div class="row">
-              <div class="col-md-12 space">
-                <label> FirstName : </label>
-                {{f.value.FirstName }}
-              </div>
-              <div class="col-md-12 space">
-                <label> LastName : </label>
-                {{f.value.LastName }}
-              </div>
-              <div class="col-md-12 space">
-                <label> MiddleName :</label>
-                {{f.value.MiddleName }}
-              </div>
-              <div class="col-md-6 space">
-                <label> Address :</label>
-                {{f.value.address }} ,{{f.value.city }}, {{f.value.state }} , {{f.value.country}} , {{f.value.pincode}}
-              </div>
-              <div class="col-md-6 space">
-                <label> PhoneNumber :</label>
-                {{f.value.phone }}
-              </div>
-              <div class="col-md-6 space">
-                <label> Height :</label>
-                {{f.value.height }}
-              </div>
-              <div class="col-md-6 space">
-                <label> Weight :</label>
-                {{f.value.weight }}
-              </div>
-
-            </div>
-            <div class="needspace">
-              <button class="btn btn-primary" type="submit" (click)=addnewform(f)>Add New</button>
-            </div>
-
-            <p>
-            </p>
-          </div>
         </form>
-
-
+      </div>
+      <div class="container" [hidden]="!istoggle">
+        <div class="col-md-12 naming">
+          <h3> Technician Details</h3>
+        </div>
+        <div class="row">
+          <div class="col-md-12 space">
+            <label> FirstName : </label>
+            {{signupForm.value.firstName }}
+          </div>
+          <div class="col-md-12 space">
+            <label> LastName : </label>
+            {{signupForm.value.lastName }}
+          </div>
+          <div class="col-md-12 space">
+            <label> MiddleName :</label>
+            {{signupForm.value.middleName }}
+          </div>
+          <div class="col-md-6 space">
+            <label> Address :</label>
+            {{signupForm.value.address }} ,{{signupForm.value.city }}, {{signupForm.value.state }} , {{signupForm.value.country}} ,
+            {{signupForm.value.pincode}}
+          </div>
+          <div class="col-md-6 space">
+            <label> PhoneNumber :</label>
+            {{signupForm.value.phoneNumber }}
+          </div>
+          <div class="col-md-6 space">
+            <label> Height :</label>
+            {{signupForm.value.height }}
+          </div>
+          <div class="col-md-6 space">
+            <label> Weight :</label>
+            {{signupForm.value.weight }}
+          </div>
+      
+        </div>
+        <div class="needspace">
+          <button class="btn btn-primary" type="submit" (onclick)= login() >Add New</button>
+        </div>
+      
+        <p>
+        </p>
       </div>
     </div>
   </div>
-
 </div>
