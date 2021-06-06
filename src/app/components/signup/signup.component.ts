@@ -48,12 +48,12 @@ export class SignupComponent implements OnInit {
     this.istoggle = ! this.istoggle;
     this.authService.signup(this.signupForm!.value).subscribe((msg) => {
       console.log(msg);
-      // this.router.navigate(["login"]);
+      this.router.navigate(["login"]);
       
     });
   }
   login(): void{
     this.istoggle = ! this.istoggle;
-    this.router.navigate(["login"]);
+    this.router.navigate(["signup"]);
   }
 }
