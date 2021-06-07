@@ -64,11 +64,19 @@ export class AuthService {
       );
   }
 
-  fetchAll( email: Pick<User, "email">,): Observable<User[]> {
+  fetchAll( ): Observable<User[]> {
     return this.http
       .get<User[]>(this.url, { responseType: "json" })
       .pipe(
         catchError(this.errorHandlerService.handleError<User[]>("fetchAll", []))
+      );
+  }
+  deletePost(postId: Pick<User, "id">): Observable<{}> {
+    return this.http
+      .delete<User>(`${this.url}/form/delete-details/${postId}`, this.httpOptions)
+      .pipe(
+        first(),
+        catchError(this.errorHandlerService.handleError<User>("deletePost"))
       );
   }
   
