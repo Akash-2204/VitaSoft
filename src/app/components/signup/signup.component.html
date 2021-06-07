@@ -154,13 +154,18 @@
           </mat-form-field>
 
           <button color="accent"  mat-raised-button type="submit" class="form-control">
-            <span>Sign up</span>
+            <span>Save Details</span>
           </button>
+          <p>
+            
+          </p>
 
+          
 
 
         </form>
       </div>
+
       <div class="container" [hidden]="!istoggle">
         <div class="col-md-12 naming">
           <h3> Technician Details</h3>
@@ -180,7 +185,8 @@
           </div>
           <div class="col-md-6 space">
             <label> Address :</label>
-            {{signupForm.value.address }} ,{{signupForm.value.city }}, {{signupForm.value.state }} , {{signupForm.value.country}} ,
+            {{signupForm.value.address }} ,{{signupForm.value.city }}, {{signupForm.value.state }} ,
+            {{signupForm.value.country}} ,
             {{signupForm.value.pincode}}
           </div>
           <div class="col-md-6 space">
@@ -197,13 +203,14 @@
           </div>
       
         </div>
-        <div class="needspace">
-          <button class="btn btn-primary" type="submit" (onclick)= login() >Add New</button>
-        </div>
+        <!-- <div class="needspace">
+          <button class="btn btn-primary" type="submit" (onclick)=login()>Register</button>
+        </div> -->
       
         <p>
         </p>
       </div>
+      
     </div>
   </div>
 </div>

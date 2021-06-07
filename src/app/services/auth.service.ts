@@ -64,11 +64,12 @@ export class AuthService {
       );
   }
 
-  fetchAll(): Observable<User[]> {
+  fetchAll( email: Pick<User, "email">,): Observable<User[]> {
     return this.http
       .get<User[]>(this.url, { responseType: "json" })
       .pipe(
         catchError(this.errorHandlerService.handleError<User[]>("fetchAll", []))
       );
   }
+  
 }
